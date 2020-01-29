@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1580252686081" clover="3.2.0">
+  <project timestamp="1580252686081" name="All files">
+    <metrics statements="12" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="4" elements="20" coveredelements="11" complexity="0" loc="12" ncloc="12" packages="1" files="2" classes="2"/>
+    <file name="carousel.jsx" path="/Users/garvintan/Desktop/FEC2/image_carousel_schedule_board_module/client/src/carousel.jsx">
+      <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+    </file>
+    <file name="carouselEntry.jsx" path="/Users/garvintan/Desktop/FEC2/image_carousel_schedule_board_module/client/src/carouselEntry.jsx">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>
