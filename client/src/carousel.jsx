@@ -6,7 +6,8 @@ class Carousel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            images: []
+            images: [],
+            index: 0
         }
         this.getImage = this.getImage.bind(this);
     }
