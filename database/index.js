@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const urls = require('./house.js'); 
 
 
-mongoose.connect('mongodb://localhost/fec', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/fec', { useUnifiedTopology: true }, { useNewUrlParser: true });
 
 let imageSchema = mongoose.Schema({
   HouseID: Number,
@@ -34,7 +34,7 @@ const seed = (arr) => {
 };
 
 const duplicateArray = (array, n) => {
-  var result = [];
+  let result = [];
 
   for (var i = 0; i < n; i++) {
     result = result.concat(array);
@@ -43,4 +43,17 @@ const duplicateArray = (array, n) => {
 };
 
 let array100 = duplicateArray(urls, 20);
-seed(array100);
+// seed(array100);
+
+
+module.exports = {
+  get: (callback) => {
+    Image.find({HouseID: 11}, {_id: 0, _v: 0}, (err, data) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, data);
+      }
+    })
+  }
+}
