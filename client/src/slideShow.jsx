@@ -11,32 +11,16 @@ class SlideShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            images: [],
             currentIndex: 0,
             showButtons: true
         }
-        this.getImages = this.getImages.bind(this);
         this.nextImage = this.nextImage.bind(this);
         this.prevImage = this.prevImage.bind(this);
         this.hoverImage = this.hoverImage.bind(this);
         this.leaveImage = this.leaveImage.bind(this);
     }
     
-    getImages() {
-        axios.get('/image')
-          .then((response) => {
-              this.setState({
-                  images: response.data
-              })
-          })
-          .catch((error) => {
-              console.log(error)
-          })
-    }
-
-    componentDidMount() {
-        this.getImages();
-    }
+    
     // componentDidUpdate(prevProps, prevState) {
     //     if (prevState.images !== this.state.images) {
     //         console.log(this.state.images);
@@ -46,7 +30,7 @@ class SlideShow extends React.Component {
     nextImage(e) {
         e.preventDefault();
         let currentIndex = this.state.currentIndex
-        if (currentIndex < this.state.images.length-1) {
+        if (currentIndex < this.props.images.length-1) {
             this.setState(prevState => ({
                 currentIndex: prevState.currentIndex + 1
             })) 
@@ -70,7 +54,7 @@ class SlideShow extends React.Component {
             console.log(this.state.currentIndex)
         } else {
             this.setState({
-                currentIndex: this.state.images.length-1
+                currentIndex: this.props.images.length-1
             })
             console.log(this.state.currentIndex)
         }
@@ -100,9 +84,9 @@ class SlideShow extends React.Component {
                 </div>
                 }
                 
-                {this.state.images.map((image, key) => <Slide key={key} image={image}
+                {this.props.images.map((image, key) => <Slide key={key} image={image}
                 hoverImage={this.hoverImage} leaveImage={this.leaveImage} currentIndex={this.state.currentIndex}
-                images={this.state.images} 
+                images={this.props.images} 
                 />)}
                 
             </div>
