@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SlideShow from './slideShow.jsx';
 import Carousel from './carousel.jsx';
 
 class App extends React.Component {
@@ -11,6 +12,7 @@ class App extends React.Component {
         return(
             <div>
                 Hello from React!!!!
+                <SlideShow />
                 <Carousel />
             </div>
         );
