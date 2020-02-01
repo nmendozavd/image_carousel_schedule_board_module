@@ -5,10 +5,10 @@ import Image from './image.jsx';
 
 
 const Slide = (props) => (
-  <div>
+  <div >
     {/* <Image src={props.image.URL} /> */}
     
-    <Image src={props.images[props.currentIndex].URL} />
+    <Image onMouseEnter={props.hoverImage}  onMouseLeave={props.leaveImage} src={props.images[props.currentIndex].URL} />
     
 
   </div>

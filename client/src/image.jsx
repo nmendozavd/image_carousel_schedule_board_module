@@ -17,6 +17,7 @@ const Image = styled.img`
   opacity: 1;
   animation: ${fadeIn} 10s;
   left: 250;
+  // z-index: -1;
 `
 
 export default Image;

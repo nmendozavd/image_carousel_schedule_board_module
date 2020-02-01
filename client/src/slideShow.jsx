@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import Slide from './slide.jsx'
 import RightArrow from './rightArrow.jsx';
 import LeftArrow from './leftArrow.jsx';
 import ExpandButton from './expandButton.jsx';
 import Trigger from './trigger.jsx'
+import Carousel from './carousel.jsx';
 
 
 class SlideShow extends React.Component {
@@ -64,23 +64,25 @@ class SlideShow extends React.Component {
         this.setState({
             showButtons: true
         })
+        console.log(this.state.showButtons)
     }
     leaveImage() {
         this.setState({
             showButtons:false
         })
+        console.log(this.state.showButtons)
     }
     render() {
         return(
             <div>
                 {this.state.showButtons === true &&
                 <div> 
-                  <Trigger>
+                  
                   <RightArrow nextImage={this.nextImage}/>
                   <LeftArrow prevImage={this.prevImage}/>
-                  </Trigger>
+                
                   
-                  <ExpandButton />
+                  {/* <ExpandButton /> */}
                 </div>
                 }
                 
@@ -88,7 +90,7 @@ class SlideShow extends React.Component {
                 hoverImage={this.hoverImage} leaveImage={this.leaveImage} currentIndex={this.state.currentIndex}
                 images={this.props.images} 
                 />)}
-                
+                <Carousel images={this.props.images} currentIndex={this.state.currentIndex} images={this.props.images} />
             </div>
         )
     }

@@ -35,7 +35,7 @@ class App extends React.Component {
             <div>
                 Hello from React!!!!
                 <SlideShow images={this.state.images}/>
-                <Carousel images={this.state.images} />
+                {/* <Carousel images={this.state.images} /> */}
             </div>
         );
     }
