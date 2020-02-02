@@ -8,12 +8,12 @@ const Container = styled.div`
   width: 690px;
   flex-direction: row;
   position: absolute;
-  top:525px;
-  justify-content: space-between;
+  top:520px;
   background-color: gray;
   outline: 5px solid gray;
   left: 255px;
   overflow: hidden;
+
 `
 const Trigger = styled.div`
   display: flex;

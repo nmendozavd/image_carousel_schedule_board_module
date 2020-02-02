@@ -5,6 +5,7 @@ import LeftArrow from './leftArrow.jsx';
 import ExpandButton from './expandButton.jsx';
 import Trigger from './trigger.jsx'
 import Carousel from './carousel.jsx';
+import Counter from './counter.jsx';
 
 
 class SlideShow extends React.Component {
@@ -12,7 +13,7 @@ class SlideShow extends React.Component {
         super(props);
         this.state = {
             currentIndex: 0,
-            showButtons: true
+            showButtons: false
         }
         this.nextImage = this.nextImage.bind(this);
         this.prevImage = this.prevImage.bind(this);
@@ -34,14 +35,11 @@ class SlideShow extends React.Component {
             this.setState(prevState => ({
                 currentIndex: prevState.currentIndex + 1
             })) 
-            console.log(this.state.currentIndex)
         } else {
             this.setState({
                 currentIndex: 0
             })
-            console.log(this.state.currentIndex)
         }
-       
     }
 
     prevImage(e) {
@@ -51,12 +49,10 @@ class SlideShow extends React.Component {
             this.setState(prevState =>({
                 currentIndex: prevState.currentIndex -1
             }))
-            console.log(this.state.currentIndex)
         } else {
             this.setState({
                 currentIndex: this.props.images.length-1
             })
-            console.log(this.state.currentIndex)
         }
     }
 
@@ -68,29 +64,29 @@ class SlideShow extends React.Component {
     }
     leaveImage() {
         this.setState({
-            showButtons:false
+            showButtons: false
         })
         console.log(this.state.showButtons)
     }
     render() {
         return(
-            <div>
+            <div onMouseEnter={this.hoverImage}  onMouseLeave={this.leaveImage} >
                 {this.state.showButtons === true &&
-                <div> 
-                  
-                  <RightArrow nextImage={this.nextImage}/>
-                  <LeftArrow prevImage={this.prevImage}/>
-                
-                  
-                  {/* <ExpandButton /> */}
-                </div>
+                  <div>
+                  <RightArrow  nextImage={this.nextImage}/>
+                  <LeftArrow  prevImage={this.prevImage}/>
+                  <Counter currentIndex={this.state.currentIndex} images={this.props.images}/>
+
+                  </div>
                 }
                 
                 {this.props.images.map((image, key) => <Slide key={key} image={image}
                 hoverImage={this.hoverImage} leaveImage={this.leaveImage} currentIndex={this.state.currentIndex}
                 images={this.props.images} 
                 />)}
-                <Carousel images={this.props.images} currentIndex={this.state.currentIndex} images={this.props.images} />
+                <Carousel images={this.props.images} currentIndex={this.state.currentIndex} 
+                hoverImage={this.hoverImage} leaveImage={this.leaveImage}
+                />
             </div>
         )
     }

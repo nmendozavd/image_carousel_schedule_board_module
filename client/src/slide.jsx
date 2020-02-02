@@ -8,7 +8,7 @@ const Slide = (props) => (
   <div >
     {/* <Image src={props.image.URL} /> */}
     
-    <Image onMouseEnter={props.hoverImage}  onMouseLeave={props.leaveImage} src={props.images[props.currentIndex].URL} />
+    <Image src={props.images[props.currentIndex].URL} />
     
 
   </div>

@@ -7,8 +7,8 @@ const Left = styled.div`
  margin-left: 250px;
  margin-top:200px;
  color: white;
- z-index: 3;
- position: fixed;
+ z-index: 1;
+ position: absolute;
  display:block;
  cursor: pointer;
 `
