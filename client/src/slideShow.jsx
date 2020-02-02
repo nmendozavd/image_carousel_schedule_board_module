@@ -6,7 +6,9 @@ import ExpandButton from './expandButton.jsx';
 import Trigger from './trigger.jsx'
 import Carousel from './carousel.jsx';
 import Counter from './counter.jsx';
-
+import CarouselRight from './carouselRightArrow.jsx';
+import CarouselLeft from './carouselLeftArrow.jsx';
+import StreetView from './streetView.jsx';
 
 class SlideShow extends React.Component {
     constructor(props) {
@@ -76,7 +78,7 @@ class SlideShow extends React.Component {
                   <RightArrow  nextImage={this.nextImage}/>
                   <LeftArrow  prevImage={this.prevImage}/>
                   <Counter currentIndex={this.state.currentIndex} images={this.props.images}/>
-
+                  
                   </div>
                 }
                 
@@ -87,6 +89,9 @@ class SlideShow extends React.Component {
                 <Carousel images={this.props.images} currentIndex={this.state.currentIndex} 
                 hoverImage={this.hoverImage} leaveImage={this.leaveImage}
                 />
+                <CarouselRight/>
+                <CarouselLeft/>
+                <StreetView />
             </div>
         )
     }

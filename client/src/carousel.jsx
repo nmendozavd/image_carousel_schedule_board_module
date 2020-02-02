@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  width: 690px;
+  width: 630px;
   flex-direction: row;
   position: absolute;
-  top:520px;
+  top:510px;
   background-color: gray;
   outline: 5px solid gray;
-  left: 255px;
+  left: 175px;
   overflow: hidden;
 
 `
@@ -34,9 +34,9 @@ class Carousel extends React.Component {
                 {this.props.images.map((image,i) => <CarouselEntry image={image} key={i} 
             currentIndex={this.props.currentIndex} images={this.props.images}
             />)}
+                
                 </Trigger>
           
-              
             </Container>
         </div>
           

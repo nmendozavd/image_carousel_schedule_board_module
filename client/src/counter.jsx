@@ -12,8 +12,8 @@ const Count = styled.div`
   font-family: Libre Franklin;
   z-index: 1;
   position: absolute;
-  margin-top: 450px;
-  margin-left: 850px;
+  margin-top: 440px;
+  margin-left: 790px;
   transition: opacity .2s ease-out 0s;
 
 `
