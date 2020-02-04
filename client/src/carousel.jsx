@@ -1,43 +1,38 @@
-import React from 'react';
-import axios from 'axios';
+import React from 'react'
 import CarouselEntry from './carouselEntry.jsx'
+import styled from 'styled-components';
+
+
+const Container = styled.div`
+  display: flex;
+  width: 594px;
+  flex-direction: row;
+  position: absolute;
+  top:510px;
+  background-color: gray;
+  outline: 5px solid gray;
+  left: 175px;
+  overflow: hidden;
+
+`
+
 
 class Carousel extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            images: []
-        }
-        this.getImage = this.getImage.bind(this);
-    }
-    
-    getImage() {
-        axios.get('/image')
-          .then((response) => {
-              this.setState({
-                  images: response.data
-              })
-          })
-          .catch((error) => {
-              console.log('butwhy')
-          })
     }
 
-    componentDidMount() {
-        this.getImage();
-    }
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.images !== this.state.images) {
-            console.log(this.state.images);
-        }
-    }
     render() {
         return(
-            <div>
-                <div>hello from carousel</div>
-                {this.state.images.map((image, key) => <CarouselEntry key={key} image={image}/>)}
-            </div>
+        <div>
+            <Container>
+                {this.props.images.map((image,index) => <CarouselEntry image={image} key={index} 
+            currentIndex={this.props.currentIndex} images={this.props.images}
+            selectImage={this.props.selectImage} translateLeft={this.props.translateLeft} translateRight={this.props.translateRight}/>)}
+            </Container>
+        </div>
         )
     }
 }
-export default Carousel;
+
+export default Carousel
