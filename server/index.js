@@ -11,7 +11,7 @@ app.use(morgan('tiny'))
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/image', (req, res) => {
-    mongo.get((err, data) => {
+    mongo.get(req.query.ID, (err, data) => {
         if (err) {
             res.sendStatus(404);
         } else {

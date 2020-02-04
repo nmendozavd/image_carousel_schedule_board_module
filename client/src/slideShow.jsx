@@ -2,33 +2,37 @@ import React from 'react';
 import Slide from './slide.jsx'
 import RightArrow from './rightArrow.jsx';
 import LeftArrow from './leftArrow.jsx';
-import ExpandButton from './expandButton.jsx';
-import Trigger from './trigger.jsx'
 import Carousel from './carousel.jsx';
 import Counter from './counter.jsx';
 import CarouselRight from './carouselRightArrow.jsx';
 import CarouselLeft from './carouselLeftArrow.jsx';
 import StreetView from './streetView.jsx';
+import ExpandButton from './expandButton.jsx'
+
+
 
 class SlideShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             currentIndex: 0,
-            showButtons: false
+            showButtons: false,
+            translateLeft: false,
+            translateRight: false
         }
         this.nextImage = this.nextImage.bind(this);
         this.prevImage = this.prevImage.bind(this);
         this.hoverImage = this.hoverImage.bind(this);
         this.leaveImage = this.leaveImage.bind(this);
+        this.selectImage = this.selectImage.bind(this);
+        this.handleTranslateLeft = this.handleTranslateLeft.bind(this);
+        this.handleTranslateRight = this.handleTranslateRight.bind(this);
+
     }
     
-    
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.images !== this.state.images) {
-    //         console.log(this.state.images);
-    //     }
-    // }
+    componentDidUpdate() {
+        
+    }
 
     nextImage(e) {
         e.preventDefault();
@@ -58,18 +62,40 @@ class SlideShow extends React.Component {
         }
     }
 
+    selectImage(e) {
+        e.preventDefault();
+        for( var i = 0; i < this.props.images.length; i++) {
+            if (this.props.images[i].URL === e.target.src) {
+                this.setState({
+                    currentIndex: i
+                })
+            }
+        }
+    }
+
     hoverImage() {
         this.setState({
             showButtons: true
         })
-        console.log(this.state.showButtons)
     }
     leaveImage() {
         this.setState({
             showButtons: false
         })
-        console.log(this.state.showButtons)
     }
+    
+    handleTranslateLeft() {
+        this.setState({
+            translateLeft: true
+        })
+    }
+
+    handleTranslateRight() {
+        this.setState({
+            translateRight: true
+        })
+    }
+    
     render() {
         return(
             <div onMouseEnter={this.hoverImage}  onMouseLeave={this.leaveImage} >
@@ -78,7 +104,7 @@ class SlideShow extends React.Component {
                   <RightArrow  nextImage={this.nextImage}/>
                   <LeftArrow  prevImage={this.prevImage}/>
                   <Counter currentIndex={this.state.currentIndex} images={this.props.images}/>
-                  
+                  <ExpandButton />
                   </div>
                 }
                 
@@ -88,9 +114,10 @@ class SlideShow extends React.Component {
                 />)}
                 <Carousel images={this.props.images} currentIndex={this.state.currentIndex} 
                 hoverImage={this.hoverImage} leaveImage={this.leaveImage}
+                selectImage={this.selectImage} translateLeft={this.state.translateLeft}
                 />
-                <CarouselRight/>
-                <CarouselLeft/>
+                <CarouselRight handleTranslate={this.handleTranslateLeft}/>
+                <CarouselLeft handleTranslate={this.handleTranslateRight}/>
                 <StreetView />
             </div>
         )

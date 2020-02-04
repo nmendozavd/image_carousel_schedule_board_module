@@ -8,24 +8,27 @@ const Left = styled.div`
   width: 24px;
   height:60;
   position: absolute;
-  margin-top:479px;
+  margin-top:497px;
   z-index: 1;
-  margin-left:140px;
+  margin-left:141px;
  
 `
 
 const SVG = styled.svg`
   opacity: 0.5;
-  top: 10
+  top: 10;
+  right: 5;
+  z-index:1;
+  position:relative;
   &:hover {
       opacity: 1;
   }
 
 `
-const CarouselLeft = () => (
-    <Left>
-        <SVG><path fill="white" d="M14.19 16.005l7.869 7.868-2.129 2.129-9.996-9.997L19.937 6.002l2.127 2.129z"/></SVG>
-        </Left>
+const CarouselLeft = (props) => (
+  <Left>
+    <SVG onClick={props.handleTranslate}><path fill="white" d="M14.19 16.005l7.869 7.868-2.129 2.129-9.996-9.997L19.937 6.002l2.127 2.129z"/></SVG>
+  </Left>
     
 )
 export default CarouselLeft;

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SlideShow from './slideShow.jsx';
-import Carousel from './carousel.jsx';
 import axios from 'axios';
+
 
 class App extends React.Component {
     constructor(props) {
@@ -11,11 +11,15 @@ class App extends React.Component {
             images: []
         }
         this.getImages = this.getImages.bind(this);
-
     }
 
     getImages() {
-        axios.get('/image')
+        let randomID = Math.floor(Math.random() * 100);
+        axios.get('/image', {
+            params: {
+                ID: randomID
+            }
+        })
           .then((response) => {
               this.setState({
                   images: response.data
@@ -29,13 +33,11 @@ class App extends React.Component {
     componentDidMount() {
         this.getImages();
     }
-
+   
     render() {
         return(
             <div>
-                Hello from React!!!!
-                <SlideShow images={this.state.images}/>
-                {/* <Carousel images={this.state.images} /> */}
+                  <SlideShow images={this.state.images}/>
             </div>
         );
     }

@@ -1,11 +1,11 @@
 import React from 'react'
-import {CarouselEntry, CarouselImage} from './carouselEntry.jsx'
+import CarouselEntry from './carouselEntry.jsx'
 import styled from 'styled-components';
 
 
 const Container = styled.div`
   display: flex;
-  width: 630px;
+  width: 594px;
   flex-direction: row;
   position: absolute;
   top:510px;
@@ -15,11 +15,7 @@ const Container = styled.div`
   overflow: hidden;
 
 `
-const Trigger = styled.div`
-  display: flex;
-&:active ${CarouselImage} {
-    transform: translateX(-600px);
-`
+
 
 class Carousel extends React.Component {
     constructor(props) {
@@ -30,16 +26,11 @@ class Carousel extends React.Component {
         return(
         <div>
             <Container>
-                <Trigger>
-                {this.props.images.map((image,i) => <CarouselEntry image={image} key={i} 
+                {this.props.images.map((image,index) => <CarouselEntry image={image} key={index} 
             currentIndex={this.props.currentIndex} images={this.props.images}
-            />)}
-                
-                </Trigger>
-          
+            selectImage={this.props.selectImage} translateLeft={this.props.translateLeft} translateRight={this.props.translateRight}/>)}
             </Container>
         </div>
-          
         )
     }
 }
