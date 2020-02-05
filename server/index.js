@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3002
 const morgan = require('morgan');
 const mongo = require('../database/index.js');
 
@@ -18,7 +18,7 @@ app.get('/image', (req, res) => {
             res.send(data)
         }
     })
-
+    
    
 })
 
