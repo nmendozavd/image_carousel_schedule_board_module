@@ -16,8 +16,8 @@ const Image = styled.img`
   width: 728;
   opacity: 1;
   animation: ${fadeIn} 10s;
-  left: 149;
-  top: 80;
+  /* left: 149;
+  top: 80; */
   // z-index: -1;
 `
 

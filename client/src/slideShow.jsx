@@ -8,8 +8,15 @@ import CarouselRight from './carouselRightArrow.jsx';
 import CarouselLeft from './carouselLeftArrow.jsx';
 import StreetView from './streetView.jsx';
 import ExpandButton from './expandButton.jsx'
+import styled from 'styled-components';
 
 
+const Wrapper = styled.div`
+    margin: 0;
+    padding: 0;
+    border: 0;
+   
+`
 
 class SlideShow extends React.Component {
     constructor(props) {
@@ -98,28 +105,30 @@ class SlideShow extends React.Component {
     
     render() {
         return(
-            <div onMouseEnter={this.hoverImage}  onMouseLeave={this.leaveImage} >
-                {this.state.showButtons === true &&
-                  <div>
-                  <RightArrow  nextImage={this.nextImage}/>
-                  <LeftArrow  prevImage={this.prevImage}/>
-                  <Counter currentIndex={this.state.currentIndex} images={this.props.images}/>
-                  <ExpandButton />
-                  </div>
-                }
-                
-                {this.props.images.map((image, key) => <Slide key={key} image={image}
-                hoverImage={this.hoverImage} leaveImage={this.leaveImage} currentIndex={this.state.currentIndex}
-                images={this.props.images} 
-                />)}
-                <Carousel images={this.props.images} currentIndex={this.state.currentIndex} 
-                hoverImage={this.hoverImage} leaveImage={this.leaveImage}
-                selectImage={this.selectImage} translateLeft={this.state.translateLeft}
-                />
-                <CarouselRight handleTranslate={this.handleTranslateLeft}/>
-                <CarouselLeft handleTranslate={this.handleTranslateRight}/>
-                <StreetView />
-            </div>
+            <Wrapper>
+                <div onMouseEnter={this.hoverImage}  onMouseLeave={this.leaveImage} >
+                    {this.state.showButtons === true &&
+                    <div>
+                        <RightArrow  nextImage={this.nextImage}/>
+                        <LeftArrow  prevImage={this.prevImage}/>
+                        <Counter currentIndex={this.state.currentIndex} images={this.props.images}/>
+                        <ExpandButton />
+                    </div>
+                    }
+                    
+                    {this.props.images.map((image, key) => <Slide key={key} image={image}
+                    hoverImage={this.hoverImage} leaveImage={this.leaveImage} currentIndex={this.state.currentIndex}
+                    images={this.props.images} 
+                    />)}
+                    <Carousel images={this.props.images} currentIndex={this.state.currentIndex} 
+                    hoverImage={this.hoverImage} leaveImage={this.leaveImage}
+                    selectImage={this.selectImage} translateLeft={this.state.translateLeft}
+                    />
+                    <CarouselRight handleTranslate={this.handleTranslateLeft}/>
+                    <CarouselLeft handleTranslate={this.handleTranslateRight}/>
+                    <StreetView />
+                </div>
+            </Wrapper>
         )
     }
 }

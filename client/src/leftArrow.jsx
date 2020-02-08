@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Left = styled.div`
 //  float: left;
- margin-left: 160px;
- margin-top:250px;
+ margin-left: 10px;
+ margin-top:200px;
  color: white;
  z-index: 1;
  position: absolute;

@@ -10,8 +10,8 @@ color: white;
 width: 24px;
 height:60;
 position: absolute;
-margin-left:764px;
-margin-top:497px;
+margin-left:624px;
+margin-top:415px;
 border-right: 5px solid rgba(255,255,255, 0.3);
 `
 

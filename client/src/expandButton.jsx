@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Expand = styled.svg`
   position: absolute;
-  margin-left: 820;
-  margin-top: 90;
+  margin-left: 685;
+  margin-top: 20;
   z-index: 1;
 `
 const ExpandButton = (props) => (

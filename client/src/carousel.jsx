@@ -8,10 +8,11 @@ const Container = styled.div`
   width: 594px;
   flex-direction: row;
   position: absolute;
-  top:510px;
+  margin-left: 26px;
+  margin-top: 420px;
   background-color: gray;
   outline: 5px solid gray;
-  left: 175px;
+  /* left: 175px; */
   overflow: hidden;
 
 `

@@ -8,9 +8,9 @@ const Left = styled.div`
   width: 24px;
   height:60;
   position: absolute;
-  margin-top:497px;
   z-index: 1;
-  margin-left:141px;
+  margin-top: 415px;
+
  
 `
 
